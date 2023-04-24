@@ -13,7 +13,7 @@ namespace Exo
 
             Console.WriteLine("1 : Define number of words");
             Console.WriteLine("2 : Define number of char");
-            
+            writer.WritePageChar(200);
             var a = Console.ReadLine();
 
             switch (a)

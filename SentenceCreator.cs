@@ -13,6 +13,7 @@ namespace Exo
         WordCreator wc = new WordCreator();
         Random random = new Random();
 
+        
         public Tuple<int, string> CreateSentenceChar(int remainingChar)
         {
             int charCounter = remainingChar;

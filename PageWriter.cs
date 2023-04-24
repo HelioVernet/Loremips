@@ -39,7 +39,6 @@ namespace Exo
                     else
                     {
                         sw.Write(WriteParagraphChar(random.Next(3, 50)));
-
                     }
                 }
 
@@ -92,6 +91,7 @@ namespace Exo
                 if (result.Item1 <= 0)
                 {
                     numberOfChars = 0;
+                    paragraph += result.Item2;
                     break;
                 }
                 numberOfChars = result.Item1;
