@@ -13,8 +13,7 @@ namespace Exo
         WordCreator wc = new WordCreator();
         Random random = new Random();
 
-        
-        public Tuple<int, string> CreateSentenceChar(int remainingChar)
+        public Tuple<int, string> CreateSentenceWithChar(int remainingChar)
         {
             int charCounter = remainingChar;
 
@@ -40,7 +39,7 @@ namespace Exo
             return Tuple.Create(charCounter, sentence);
         }
 
-        public Tuple<int, string> CreateSentence(int remainingWords)
+        public Tuple<int, string> CreateSentenceWithWord(int remainingWords)
         {
             int wordCounter = 1;
 

@@ -14,7 +14,7 @@ namespace Exo
         SentenceCreator sc = new SentenceCreator();
         int numberOfChars = 0;
         int numberOfWords = 0;
-        public void WritePageChar(int askedChar)
+        public void WritePageMaxChar(int askedChar)
         {
             numberOfChars = askedChar;
             Console.WriteLine("Creating html page with " + askedChar + " words");
@@ -22,7 +22,7 @@ namespace Exo
             {
                 sw.Write(WriteCss());
 
-                var title = sc.CreateSentenceChar(numberOfChars);
+                var title = sc.CreateSentenceWithChar(numberOfChars);
                 numberOfChars = title.Item1;
                 sw.Write(WriteTitle(title.Item2));
                 sw.Write(JumpLine());
@@ -31,7 +31,7 @@ namespace Exo
                 {
                     if (random.Next(0, 50) == 1)
                     {
-                        var _title = sc.CreateSentenceChar(numberOfChars);
+                        var _title = sc.CreateSentenceWithChar(numberOfChars);
                         numberOfChars -= _title.Item1;
                         sw.Write(WriteTitle(_title.Item2));
                         sw.Write(JumpLine());
@@ -44,14 +44,14 @@ namespace Exo
 
             }
         }
-        public void WritePage(int askedWords)
+        public void WritePageMaxWord(int askedWords)
         {
             numberOfWords = askedWords;
             Console.WriteLine("Creating html page with " + askedWords + " words");
             using (StreamWriter sw = new StreamWriter("Export.html"))
             {
                 sw.Write(WriteCss());
-                var title = sc.CreateSentence(numberOfWords);
+                var title = sc.CreateSentenceWithWord(numberOfWords);
                 numberOfWords -= title.Item1;   
                 sw.Write(WriteTitle(title.Item2));
                 sw.Write(JumpLine());
@@ -60,14 +60,14 @@ namespace Exo
                 {
                     if (random.Next(0, 50) == 1)
                     {
-                        var _title = sc.CreateSentence(numberOfWords);
+                        var _title = sc.CreateSentenceWithWord(numberOfWords);
                         numberOfWords -= _title.Item1;
                         sw.Write(WriteTitle(_title.Item2));
                         sw.Write(JumpLine());
                     }
                     else
                     {
-                        sw.Write(WriteParagraph(random.Next(3, 50)));
+                        sw.Write(WriteParagraphWord(random.Next(3, 50)));
 
                     }
                 }
@@ -87,7 +87,7 @@ namespace Exo
                 {
                     break;
                 }
-                var result = sc.CreateSentenceChar(numberOfChars);
+                var result = sc.CreateSentenceWithChar(numberOfChars);
                 if (result.Item1 <= 0)
                 {
                     numberOfChars = 0;
@@ -99,7 +99,7 @@ namespace Exo
             }
             return paragraph + "</p>";
         }
-        private string WriteParagraph(int numberOfSentences)
+        private string WriteParagraphWord(int numberOfSentences)
         {
             string paragraph = "<p>";
             for (int i = 0; i < numberOfSentences; i++)
@@ -108,7 +108,7 @@ namespace Exo
                 {
                     break;
                 }
-                var result = sc.CreateSentence(numberOfWords);
+                var result = sc.CreateSentenceWithWord(numberOfWords);
                 numberOfWords -= result.Item1;
                 paragraph += result.Item2;
             }
@@ -126,7 +126,8 @@ namespace Exo
         {
             return "<style>\r\n" +
                 "body {background-color: white;}\r\n" +
-                "body   {text-align: justify;}\r\n" +
+                "body {text-align: justify; margin-right: 10%; margin-left: 10%;}\r\n" +
+                "h1 {text-align: center; text-decoration: underline;}\r\n" +
                 "</style>";
         }
 
