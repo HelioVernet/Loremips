@@ -20,7 +20,7 @@ namespace Exo
                 case "1":
                     Console.WriteLine("You choose 1");
                     Console.WriteLine("How many words do you want");
-                    var numberOfWords= Convert.ToInt32(Console.ReadLine());
+                    var numberOfWords = Convert.ToInt32(Console.ReadLine());
                     writer.WritePageMaxWord(numberOfWords);
                     Console.WriteLine("How many words do you want");
                     break;

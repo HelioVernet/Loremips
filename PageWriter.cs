@@ -52,7 +52,7 @@ namespace Exo
             {
                 sw.Write(WriteCss());
                 var title = sc.CreateSentenceWithWord(numberOfWords);
-                numberOfWords -= title.Item1;   
+                numberOfWords -= title.Item1;
                 sw.Write(WriteTitle(title.Item2));
                 sw.Write(JumpLine());
 
@@ -68,7 +68,6 @@ namespace Exo
                     else
                     {
                         sw.Write(WriteParagraphWord(random.Next(3, 50)));
-
                     }
                 }
 
@@ -104,7 +103,7 @@ namespace Exo
             string paragraph = "<p>";
             for (int i = 0; i < numberOfSentences; i++)
             {
-                if(numberOfWords <= 0)
+                if (numberOfWords <= 0)
                 {
                     break;
                 }
@@ -130,6 +129,7 @@ namespace Exo
                 "h1 {text-align: center; text-decoration: underline;}\r\n" +
                 "</style>";
         }
+
 
     }
 }

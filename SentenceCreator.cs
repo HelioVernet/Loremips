@@ -26,7 +26,7 @@ namespace Exo
 
             for (int i = 0; i < sentenceLength; i++)
             {
-                if(charCounter == 0)
+                if (charCounter == 0)
                 {
                     break;
                 }
